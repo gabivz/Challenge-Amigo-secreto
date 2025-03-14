@@ -3,7 +3,7 @@
 /*
     Explicamos codigo de la funcion 1 paso a paso: 
     
-    1. En la primera linea de cpdogp agregamos un array vacio 
+    1. En la primera linea de codigo agregamos un array vacio 
     
     2. Creamos una funcion para agregar nombres de amigos a nuestra pagina. Dentro de nuestra funcion creamos una variable de tipo var, que lo que hace es capturar 
     el valor de lo que le ingresemos sin importar su tipo de dato y amoldar esa variable, en este caso a un string. traemos el campo input del html a nuestro codigo js
@@ -29,7 +29,7 @@
 
 function agregarAmigo() {
     var campoEntrada = document.getElementById("amigo"); // Obtener el input correctamente
-    var nombreUsuario = campoEntrada.value.trim(); // Obtener el valor y quitar espacios innecesarios
+    var nombreUsuario = campoEntrada.value.trim(); // Obtener el valor y sacar espacios innecesarios
 
     if (nombreUsuario === "") {
         alert("Por favor, inserte un nombre.");
@@ -82,4 +82,22 @@ function mostrarAmigos() {
         nuevoElemento.textContent = amigos[i]; // Asignarle el nombre del amigo
         lista.appendChild(nuevoElemento); // Agregarlo a la lista
     }
+}
+
+
+function sortearAmigo() {
+    // Validar si hay amigos en la lista
+    if (amigos.length === 0) {
+        document.getElementById("resultado").innerHTML = "No hay amigos para sortear.";
+        return;
+    }
+    
+    // Generar un índice aleatorio
+    const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+    
+    // Obtener el nombre sorteado
+    const amigoSorteado = amigos[indiceAleatorio];
+    
+    // Mostrar el resultado en el elemento HTML con id 'resultado'
+    document.getElementById("resultado").innerHTML = `El amigo sorteado es: ${amigoSorteado}`;
 }
